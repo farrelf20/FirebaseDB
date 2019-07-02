@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:id="@+id/ll_content"
+              android:layout_height="wrap_content">
+
+    <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="judul"
+            android:textSize="20sp"
+            android:textStyle="bold"
+    />
+    <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tv_penulis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="penulis"
+            android:textSize="14sp"
+            android:textStyle="bold"
+    />
+    <TextView
+            android:id="@+id/tv_tgl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="tanggal"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp"
+    />
+
+
+</LinearLayout>
