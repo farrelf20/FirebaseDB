@@ -26,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        btn_register.setOnClickListener {
+            startActivity(Intent(this, Register::class.java))
+        }
+
         helperPref = PrefsHelper(this)
         fAuth = FirebaseAuth.getInstance()
         val gso = GoogleSignInOptions.Builder(
@@ -36,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         mGoogleSignIn = GoogleSignIn.getClient(this, gso)
-        sign_in_button.setOnClickListener {
+        btn_signin.setOnClickListener {
             signIN()
         }
     }

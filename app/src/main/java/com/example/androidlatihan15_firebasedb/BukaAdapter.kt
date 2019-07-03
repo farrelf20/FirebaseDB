@@ -1,6 +1,8 @@
 package com.example.androidlatihan15_firebasedb
 
 import android.content.Context
+import android.content.Intent
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +14,13 @@ import android.widget.Toast
 class BukaAdapter : RecyclerView.Adapter<BukaAdapter.BukuViewHolder> {
     lateinit var mContext: Context
     lateinit var itemBuku: List<BukuModel>
+    lateinit var listener : FirebaseDataListener
 
     constructor()
     constructor(mContext: Context, list: List<BukuModel>) {
         this.mContext = mContext
         this.itemBuku = list
+        listener = mContext as HalamanDepan
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): BukuViewHolder {
@@ -42,6 +46,26 @@ class BukaAdapter : RecyclerView.Adapter<BukaAdapter.BukuViewHolder> {
                 Toast.LENGTH_SHORT
             ).show()
         }
+        p0.ll_content.setOnLongClickListener(object : View.OnLongClickListener{
+            override fun onLongClick(v: View?): Boolean {
+                val builder = AlertDialog.Builder(mContext)
+                builder.setMessage("Pilih Operasi Data !!")
+                builder.setPositiveButton("Update"){
+                    dialog, i ->
+//                        Toast.makeText(mContext, "haloo saya update",
+//                            Toast.LENGTH_SHORT).show()
+                    listener.onUpdated(bukuModel, p1)
+                }
+                builder.setNegativeButton("delete"){
+                    dialog, i ->
+                        listener.onDeleteData(bukuModel, p1)
+                }
+                val dialog : AlertDialog = builder.create()
+                dialog.show()
+
+                return true
+            }
+        })
     }
 
     inner class BukuViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
@@ -57,4 +81,9 @@ class BukaAdapter : RecyclerView.Adapter<BukaAdapter.BukuViewHolder> {
             tv_tanggal = itemview.findViewById(R.id.tv_tgl)
         }
     }
+    interface FirebaseDataListener {
+        fun onDeleteData(buku : BukuModel, position : Int)
+        fun onUpdated(buku : BukuModel, position: Int)
+    }
+
 }

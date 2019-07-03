@@ -6,6 +6,7 @@ class BukuModel {
     private var judulBuku: String? = null
     private var id: String? = null
     private var description: String? = null
+    private var key : String? = null
 
     constructor()
     constructor(nama: String, tanggal: String, judul: String) {
@@ -53,4 +54,6 @@ class BukuModel {
     fun setJudul(judul: String) {
         this.judulBuku = judul
     }
+    fun getKey() : String{return key!!}
+    fun setKey(key : String){this.key = key}
 }
