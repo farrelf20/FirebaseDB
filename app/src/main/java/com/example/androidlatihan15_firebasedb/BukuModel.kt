@@ -35,19 +35,19 @@ class BukuModel {
         this.id = id
     }
 
-    fun getDesc(): String {
+    fun getDescription(): String {
         return description!!
     }
 
-    fun getDesc(desc: String) {
-        this.description = desc
+    fun setDescription(description: String) {
+        this.description = description
     }
 
     fun setNama(nama: String) {
         this.nama = nama
     }
 
-    fun setTamggal(tanggal: String) {
+    fun setTanggal(tanggal: String) {
         this.tanggal = tanggal
     }
 

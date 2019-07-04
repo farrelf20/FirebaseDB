@@ -78,7 +78,7 @@ class TambahData : AppCompatActivity() {
                 et_namaPenulis.setText(buku!!.getNama())
                 et_judulBuku.setText(buku.getJudulBuku())
                 et_tanggal.setText(buku.getTanggal())
-//                et_description.setText(buku.getDesc())
+                et_description.setText(buku.getDescription())
             }
         })
 

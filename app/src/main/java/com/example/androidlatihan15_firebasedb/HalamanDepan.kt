@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.halaman_depan.*
 
 class HalamanDepan : AppCompatActivity(), BukaAdapter.FirebaseDataListener {
 
-
     private var bukaAdapter: BukaAdapter? = null
     private var rcView: RecyclerView? = null
     private var list: MutableList<BukuModel> = ArrayList()
@@ -62,6 +61,9 @@ class HalamanDepan : AppCompatActivity(), BukaAdapter.FirebaseDataListener {
         floatingActionButton.setOnClickListener {
             //lets do something
             startActivity(Intent(this, TambahData::class.java))
+        }
+        uploadstorage.setOnClickListener {
+            startActivity(Intent(this, UploadFireStorage::class.java))
         }
     }
 
