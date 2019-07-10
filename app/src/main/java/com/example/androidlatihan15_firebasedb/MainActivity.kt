@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             helperPref.saveUID(user.uid) // berfungsi untuk save uid ke sharepreferences
-            startActivity(Intent(this, HalamanDepan::class.java))
+            startActivity(Intent(this, MainMessage::class.java))
         } else {
             e("TAG_ERROR", "user tidak ada")
         }

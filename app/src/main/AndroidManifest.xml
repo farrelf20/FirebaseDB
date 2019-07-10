@@ -21,6 +21,7 @@
         <activity android:name=".TambahData"/>
         <activity android:name=".Register"/>
         <activity android:name=".UploadFireStorage"/>
+        <activity android:name=".MainMessage"/>
     </application>
 
 </manifest>

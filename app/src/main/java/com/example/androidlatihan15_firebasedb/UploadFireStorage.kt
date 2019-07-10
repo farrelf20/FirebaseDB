@@ -2,17 +2,14 @@ package com.example.androidlatihan15_firebasedb
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.provider.MediaStore
 import android.support.v4.content.ContextCompat
-import android.support.v4.content.MimeTypeFilter
 import android.support.v7.app.AppCompatActivity
 import android.util.Log.e
 import android.view.View
@@ -20,6 +17,7 @@ import android.webkit.MimeTypeMap
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.upload_image.*
@@ -143,6 +141,10 @@ class UploadFireStorage : AppCompatActivity() {
                 Toast.makeText(this@UploadFireStorage, "berhasil upload",
                         Toast.LENGTH_SHORT).show()
                 progressDownload.visibility = View.GONE
+                ref.downloadUrl.addOnSuccessListener {
+                    dbRef = FirebaseDatabase.getInstance().getReference("image/")
+                    dbRef.child("urlImage/${helperPrefs.getCounterId()}").setValue(it.toString())
+                }
             }
             .addOnFailureListener {
                 e("TAGERROR" ,it.message)

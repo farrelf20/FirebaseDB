@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ads="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="16dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/messageRecyclerView"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearlayout"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true">
+
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:id="@+id/addMessage"
+                   ads:srcCompat="@android:drawable/ic_menu_gallery"/>
+
+        <EditText android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/et_messsage"
+                  android:layout_weight="1"
+                  android:layout_gravity="center_vertical"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sendButtom"
+                android:layout_gravity="bottom"
+                android:enabled="false"
+                android:textColor="@color/hitampekat"
+                android:background="@drawable/shape_hijaw"
+                android:text="KIRIM"/>
+
+    </LinearLayout>
+    <ProgressBar android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/progresBar"
+                 android:layout_centerHorizontal="true"
+                 android:layout_centerVertical="true"
+                 style="?android:attr/progressBarStyleLarge"
+    />
+
+
+</LinearLayout>

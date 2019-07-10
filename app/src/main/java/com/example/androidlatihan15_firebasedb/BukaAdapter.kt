@@ -1,12 +1,12 @@
 package com.example.androidlatihan15_firebasedb
 
 import android.content.Context
-import android.content.Intent
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -73,12 +73,14 @@ class BukaAdapter : RecyclerView.Adapter<BukaAdapter.BukuViewHolder> {
         var tv_nama: TextView
         var tv_tanggal: TextView
         var tv_judul: TextView
+        var tv_img: ImageView
 
         init {
             ll_content = itemview.findViewById(R.id.ll_content)
             tv_nama = itemview.findViewById(R.id.tv_penulis)
             tv_judul = itemview.findViewById(R.id.tv_title)
             tv_tanggal = itemview.findViewById(R.id.tv_tgl)
+            tv_img = itemview.findViewById(R.id.tv_img)
         }
     }
     interface FirebaseDataListener {
